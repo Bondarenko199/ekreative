@@ -1,0 +1,39 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "Personal CV",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bondarenko199/cv.git"
+  },
+  "keywords": [
+    "cv",
+    "bondarenko"
+  ],
+  "author": "German",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bondarenko199/cv/issues"
+  },
+  "homepage": "https://github.com/Bondarenko199/cv#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "owl.carousel": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp-imagemin": "^3.1.1",
+    "imagemin-pngquant": "^5.0.0",
+    "gulp-cache": "^0.4.5"
+  }
+}

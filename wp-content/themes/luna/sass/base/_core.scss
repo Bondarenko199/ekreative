@@ -1,0 +1,129 @@
+body {
+  font: $font-main;
+  //color: ;
+}
+
+section {
+  padding: 6.25em 0;
+}
+
+.container {
+  z-index: 2;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tone {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+  }
+}
+
+.border-none {
+  border: none !important;
+}
+
+.no-content {
+  font: 5em $font-bold;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*----------------------------------MAIN-ELEMENTS-----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.section-header {
+  text-align: center;
+  &.margin {
+    margin-bottom: 1.75em;
+  }
+  &-headline {
+    font: 1.37em $font-light;
+    text-transform: uppercase;
+    &.margin {
+      margin-bottom: 1.2em;
+    }
+  }
+  &-text {
+    &.margin {
+      margin-bottom: 1.75em;
+    }
+  }
+}
+
+.main {
+  &-text {
+    font-size: .87em;
+    &.margin {
+      margin-bottom: 2.2em;
+    }
+  }
+  &-button {
+    padding: .1em;
+    background: $light-bg;
+    position: absolute;
+    top: 1px;
+    right: .5em;
+    &:hover {
+      color: $color-text;
+    }
+  }
+}
+
+.page-headline {
+  font: 2em $font-bold;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*------------------------------------COLORS----------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+.light {
+  &-text {
+    color: $light-text;
+  }
+  &-bg {
+    background: $light-bg;
+  }
+}
+
+.mid-tone {
+  &-text {
+    color: $mid-tone-text;
+  }
+  &-bg {
+    background: $mid-tone-bg;
+  }
+}
+
+.mid-dark-text {
+  color: $mid-dark-text;
+}
+
+.color {
+  &-text {
+    color: $color-text;
+  }
+  &-bg {
+    background: $color-bg;
+  }
+}
+
+.dark {
+  &-text {
+    color: $dark-text;
+  }
+  &-bg {
+    background: $dark-bg;
+  }
+}
