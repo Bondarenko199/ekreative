@@ -5,11 +5,6 @@
  * @package luna
  */
 
-/**
- * Add postMessage support for site title and description for the Theme Customizer.
- *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
- */
 function luna_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -25,30 +20,171 @@ function luna_customize_register( $wp_customize ) {
 			'render_callback' => 'luna_customize_partial_blogdescription',
 		) );
 	}
+
+	/*--------------------------------------PANELS--------------------------------------*/
+
+	$wp_customize->add_panel( 'home_page_options', array(
+		'title'    => __( 'Home page options', 'luna' ),
+		'priority' => 10
+	) );
+
+	/*-------------------------------Home Section 1-------------------------------*/
+
+	$wp_customize->add_section( 'section_1', array(
+		'title'    => __( 'Section 1', 'luna' ),
+		'panel'    => 'home_page_options',
+		'priority' => 10
+	) );
+
+	$wp_customize->add_setting( 'section_1_bg', array(
+		'default'   => '#4ca9cc',
+		'transport' => 'refresh'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_1_bg', array(
+				'label'      => __( 'Intro background', 'luna' ),
+				'section'    => 'section_1',
+				'settings'   => 'section_1_bg'
+    ) ) );
+
+	/*-------------------------------Home Section 2-------------------------------*/
+
+	$wp_customize->add_section( 'section_2', array(
+		'title'    => __( 'Section 2', 'luna' ),
+		'panel'    => 'home_page_options',
+		'priority' => 20
+	) );
+
+	$wp_customize->add_setting( 'section_2_headline', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_2_headline', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_2',
+		'settings' => 'section_2_headline'
+	) ) );
+
+	$wp_customize->add_setting( 'section_2_text', array(
+		'default'   => 'Text',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_2_text', array(
+		'label'    => __( 'Section header text', 'luna' ),
+		'section'  => 'section_2',
+		'type'     => 'textarea',
+		'settings' => 'section_2_text'
+	) ) );
+	
+	$wp_customize->add_setting( 'section_2_image_1', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_2_image_1', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_2',
+		'settings' => 'section_2_image_1'
+	) ) );
+
+	$wp_customize->add_setting( 'section_2_image_2', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_2_image_2', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_2',
+		'settings' => 'section_2_image_2'
+	) ) );
+
+	$wp_customize->add_setting( 'section_2_image_3', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_2_image_3', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_2',
+		'settings' => 'section_2_image_3'
+	) ) );
+
+	$wp_customize->add_setting( 'section_2_image_4', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_2_image_4', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_2',
+		'settings' => 'section_2_image_4'
+	) ) );
+
+	/*-------------------------------Home Section 3-------------------------------*/
+
+	$wp_customize->add_section( 'section_3', array(
+		'title'    => __( 'Section 3', 'luna' ),
+		'panel'    => 'home_page_options',
+		'priority' => 30
+	) );
+
+	$wp_customize->add_setting( 'section_3_header_headline', array(
+		'default'   => 'Headline',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_header_headline', array(
+		'label'    => __( 'Section headline', 'luna' ),
+		'section'  => 'section_3',
+		'settings' => 'section_3_header_headline'
+	) ) );
+
+	/*-------------------------------Footer-------------------------------*/
+
+	$wp_customize->add_section( 'footer_options', array(
+		'title'    => __( 'Footer options', 'luna' ),
+		'priority' => 10
+	) );
+
+	$wp_customize->add_setting( 'footer_logo', array(
+		'default'   => '',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo', array(
+		'label'    => __( 'Footer logo', 'luna' ),
+		'section'  => 'footer_options',
+		'settings' => 'footer_logo'
+	) ) );
+
+	$wp_customize->add_setting( 'footer_text', array(
+		'default'   => '',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_text', array(
+		'label'    => __( 'Footer text', 'luna' ),
+		'section'  => 'footer_options',
+		'type'     => 'textarea',
+		'settings' => 'footer_text'
+	) ) );
+
 }
 add_action( 'customize_register', 'luna_customize_register' );
 
-/**
- * Render the site title for the selective refresh partial.
- *
- * @return void
- */
+function customizer_styles() {
+	?>
+		<style>
+			.intro {
+				background: url("<?php echo get_theme_mod('section_1_bg') ?>") no-repeat 50% 50%;
+                background-size: cover;
+			}
+		</style>
+	<?php
+}
+add_action( 'wp_head', 'customizer_styles' );
+
 function luna_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
-/**
- * Render the site tagline for the selective refresh partial.
- *
- * @return void
- */
 function luna_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
 function luna_customize_preview_js() {
 	wp_enqueue_script( 'luna-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }

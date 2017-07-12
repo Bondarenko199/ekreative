@@ -1,14 +1,9 @@
 body {
-  font: $font-main;
-  //color: ;
+  font: 1.1em $font-main;
 }
 
 section {
   padding: 6.25em 0;
-}
-
-.container {
-  z-index: 2;
 }
 
 .img-responsive {
@@ -69,11 +64,11 @@ section {
     }
   }
   &-button {
-    padding: .1em;
+    min-width: 5.5em;
+    padding: .7em;
     background: $light-bg;
-    position: absolute;
-    top: 1px;
-    right: .5em;
+    box-shadow: $light-bg 0 20px 30px;
+    border-radius: 10px;
     &:hover {
       color: $color-text;
     }

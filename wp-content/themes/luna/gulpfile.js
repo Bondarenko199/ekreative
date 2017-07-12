@@ -29,6 +29,10 @@ var config = {
     'img': {
         'src': './images/',
         'dest': './images/optimised/'
+    },
+    'font': {
+        'src': './node_modules/font-awesome/fonts/*',
+        'dest': './fonts/FontAwesome/'
     }
 };
 
@@ -55,18 +59,25 @@ gulp.task('js', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('font', function () {
+    return gulp.src(config.font.src)
+        .pipe(gulp.dest(config.font.dest))
+        .pipe(reload({stream: true}));
+});
+
 gulp.task('browser-sync', function () {
     browserSync.init({
         notify: false,
         reloadDelay: 1500,
-        proxy: "localhost/cv/"
+        proxy: "localhost/ekreative/"
     });
 });
 
-gulp.task('watch', ['browser-sync', 'php', 'sass', 'js'], function () {
+gulp.task('watch', ['browser-sync', 'php', 'sass', 'js', 'font'], function () {
     gulp.watch(config.php.src, ['php']);
     gulp.watch(config.sass.src, ['sass']);
     gulp.watch(config.js.src, ['js']);
+    gulp.watch(config.js.src, ['font']);
 });
 
 // gulp.task('img', function () {
@@ -88,6 +99,6 @@ gulp.task('clean', function () {
 //     return cache.clearAll();
 // });
 
-gulp.task('build', ['php', 'sass', 'js'], function () {
+gulp.task('build', ['php', 'sass', 'js', 'font'], function () {
 
 });

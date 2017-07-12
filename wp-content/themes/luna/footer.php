@@ -10,23 +10,17 @@
  */
 
 ?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'luna' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'luna' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'luna' ), 'luna', '<a href="https://automattic.com/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer class="main-footer color-bg">
+    <div class="container">
+        <div class="d-flex">
+            <div class="w-50 footer-text-container">
+                <img src="<?php echo get_theme_mod('footer_logo') ?>">
+                <p class="light-text footer-text"><?php echo get_theme_mod('footer_text') ?></p>
+            </div>
+            <a href="" class="main-button"></a>
+        </div>
+    </div>
+</footer>
 
 <?php wp_footer(); ?>
 

@@ -16,6 +16,10 @@ a, a:hover {
   text-decoration: none;
 }
 
+a:focus {
+  text-decoration: none;
+}
+
 select, input, textarea {
   vertical-align: middle;
 }
