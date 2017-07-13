@@ -7,6 +7,10 @@
   z-index: 999999;
 }
 
+.navbar-nav {
+  background: rgba(75, 0, 129, .3);
+}
+
 .menu-item {
   a {
     padding: 1em .5rem;
@@ -26,8 +30,10 @@
   }
 }
 
-.navbar-toggler:focus {
+.navbar-toggler {
+  &:focus {
     outline: none !important;
+  }
   &-icon {
     width: 1.2em;
     height: .1em;

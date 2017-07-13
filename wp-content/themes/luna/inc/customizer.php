@@ -42,10 +42,10 @@ function luna_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_1_bg', array(
-				'label'      => __( 'Intro background', 'luna' ),
-				'section'    => 'section_1',
-				'settings'   => 'section_1_bg'
-    ) ) );
+		'label'    => __( 'Intro background', 'luna' ),
+		'section'  => 'section_1',
+		'settings' => 'section_1_bg'
+	) ) );
 
 	/*-------------------------------Home Section 2-------------------------------*/
 
@@ -75,7 +75,7 @@ function luna_customize_register( $wp_customize ) {
 		'type'     => 'textarea',
 		'settings' => 'section_2_text'
 	) ) );
-	
+
 	$wp_customize->add_setting( 'section_2_image_1', array(
 		'default'   => 'Headline',
 		'transport' => 'refresh'
@@ -134,6 +134,35 @@ function luna_customize_register( $wp_customize ) {
 		'settings' => 'section_3_header_headline'
 	) ) );
 
+	$wp_customize->add_setting( 'section_3_custom_button_link', array(
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_custom_button_link', array(
+		'label'    => __( 'Button custom link', 'luna' ),
+		'section'  => 'section_3',
+		'settings' => 'section_3_custom_button_link'
+	) ) );
+
+	$wp_customize->add_setting( 'section_3_button_link', array(
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_button_link', array(
+		'label'    => __( 'Button link', 'luna' ),
+		'section'  => 'section_3',
+		'type'     => 'dropdown-pages',
+		'settings' => 'section_3_button_link'
+	) ) );
+
+	$wp_customize->add_setting( 'section_3_button_text', array(
+		'default'   => 'show more',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'section_3_button_text', array(
+		'label'    => __( 'Button text', 'luna' ),
+		'section'  => 'section_3',
+		'settings' => 'section_3_button_text'
+	) ) );
+
 	/*-------------------------------Footer-------------------------------*/
 
 	$wp_customize->add_section( 'footer_options', array(
@@ -162,19 +191,30 @@ function luna_customize_register( $wp_customize ) {
 		'settings' => 'footer_text'
 	) ) );
 
+	$wp_customize->add_setting( 'contact_button_text', array(
+		'default'   => '',
+		'transport' => 'refresh'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'contact_button_text', array(
+		'label'    => __( 'Contact button text', 'luna' ),
+		'section'  => 'footer_options',
+		'settings' => 'contact_button_text'
+	) ) );
 }
+
 add_action( 'customize_register', 'luna_customize_register' );
 
 function customizer_styles() {
 	?>
-		<style>
-			.intro {
-				background: url("<?php echo get_theme_mod('section_1_bg') ?>") no-repeat 50% 50%;
-                background-size: cover;
-			}
-		</style>
+    <style>
+        .intro {
+            background: url("<?php echo get_theme_mod('section_1_bg') ?>") no-repeat 50% 50%;
+            background-size: cover;
+        }
+    </style>
 	<?php
 }
+
 add_action( 'wp_head', 'customizer_styles' );
 
 function luna_customize_partial_blogname() {
@@ -188,4 +228,5 @@ function luna_customize_partial_blogdescription() {
 function luna_customize_preview_js() {
 	wp_enqueue_script( 'luna-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
+
 add_action( 'customize_preview_init', 'luna_customize_preview_js' );

@@ -57,3 +57,23 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+/*----------------------------------owl reset-----------------------------------*/
+
+.owl {
+  &-stage {
+    padding: 2em 0;
+    &-outer {
+      position: relative;
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+  &-item {
+    box-shadow: rgba(0, 0, 0, .3) 0 10px 20px;
+  }
+}

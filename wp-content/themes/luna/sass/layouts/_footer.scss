@@ -1,0 +1,24 @@
+.main-footer {
+  padding-bottom: 0;
+}
+
+.footer {
+  &-logo-container {
+    &.margin {
+      margin-bottom: 1.68em;
+    }
+  }
+  &-text {
+    &.margin {
+      margin-bottom: 1em;
+    }
+    &-container.margin {
+      margin-bottom: 6em;
+    }
+  }
+}
+
+.copyrights-container {
+  padding: 1.25em 0;
+  border-top: 1px solid rgba(255, 255, 255, .4);
+}
